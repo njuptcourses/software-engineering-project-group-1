@@ -35,8 +35,8 @@ public class LogClass extends javax.swing.JFrame {
     }
 
     
-  //  VoteMain vm = new VoteMain();
-    //AdminMain am = new AdminMain();
+    VoteMain vm = new VoteMain();
+    AdminMain am = new AdminMain();
     
     /**
      * This method is called from within the constructor to initialize the form.
