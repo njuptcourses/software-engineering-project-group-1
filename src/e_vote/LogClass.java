@@ -180,14 +180,26 @@ public class LogClass extends javax.swing.JFrame {
     }//GEN-LAST:event_extButActionPerformed
 
     private void SignButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignButActionPerformed
-        // TODO add your handling code here:
-         
-            
+              
         String userName = idField.getText();
         String passWord = passField.getText();
         
-        if(Sel.getSelectedItem().equals("Voter"))
+        if (Sel.getSelectedItem().equals("Administrator"))
         {
+        
+            if((userName.contains("Admin"))&&(passWord.contains("Pass")))
+            {
+                am.setVisible(true);
+           
+            }
+        
+        }
+        
+        
+        
+        
+      
+        else{  
         try
         {
            int log = 1; 
@@ -202,7 +214,7 @@ public class LogClass extends javax.swing.JFrame {
                   log = 0;
                   
               }
-              
+             
           }
           if (log == 0)
           {
@@ -210,28 +222,7 @@ public class LogClass extends javax.swing.JFrame {
              vm.setVisible(true);
              
              //LogClass.this.closeMe();
-          }   
-            else if(Sel.getSelectedItem().equals("Admin"))
-        {
-        try
-        {
-          int admin = 1;
-          
-          while (rs.next())
-          {
-              
-               if (idField.getText().equals("Admin")&& passField.getText().equals("Pass"))
-              {
-                 admin = 0 ;
-                 break;
-              } 
-          }
-          
-          if(admin == 0)
-          {
-          
-             am.setVisible(true);
-          }
+          }  
          else
           {
              JOptionPane.showMessageDialog(null,"Login failed","Login System",JOptionPane.ERROR_MESSAGE);
@@ -245,63 +236,7 @@ public class LogClass extends javax.swing.JFrame {
         {
            Logger.getLogger(LogClass.class.getName()).log(Level.SEVERE,null,ex);      
         }
-        
         }
-          
-         else
-           
-         JOptionPane.showMessageDialog(null,"Login failed","Login System",JOptionPane.ERROR_MESSAGE);
-         idField.setText("");
-         passField.setText("");
-         idField.grabFocus();
-         
-          
-        }  
-        catch(SQLException ex)
-        {
-           Logger.getLogger(LogClass.class.getName()).log(Level.SEVERE,null,ex);      
-        }
-        
-        }
-        
-        
-       /* else if(Sel.getSelectedItem().equals("Admin"))
-        {
-        try
-        {
-          int admin = 1;
-          
-          while (rs.next())
-          {
-              
-               if (idField.getText().equals("Admin")&& passField.getText().equals("Pass"))
-              {
-                 admin = 0 ;
-                 break;
-              } 
-          }
-          
-          if(admin == 0)
-          {
-          
-             am.setVisible(true);
-          }
-         else
-          {
-             JOptionPane.showMessageDialog(null,"Login failed","Login System",JOptionPane.ERROR_MESSAGE);
-            idField.setText("");
-             passField.setText("");
-            idField.grabFocus();
-         
-          }
-        }
-        catch(SQLException ex)
-        {
-           Logger.getLogger(LogClass.class.getName()).log(Level.SEVERE,null,ex);      
-        }
-        
-        }
-        */
     }//GEN-LAST:event_SignButActionPerformed
 
     private void SelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelActionPerformed

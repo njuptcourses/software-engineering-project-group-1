@@ -71,6 +71,7 @@ public class AdminMain extends javax.swing.JFrame {
             }
         });
 
+        buttonGroupRs.add(Can4Rs);
         Can4Rs.setText("Maxwell");
 
         jLabel1.setText("ADMINISTRATOR PAGE");
