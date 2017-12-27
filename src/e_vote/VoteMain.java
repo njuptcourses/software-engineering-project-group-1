@@ -7,7 +7,7 @@ package e_vote;
 
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -26,6 +26,7 @@ public class VoteMain extends javax.swing.JFrame {
 
     
         IO wr = new IO();
+        EndPage e = new EndPage();
         
         
         
@@ -48,7 +49,12 @@ public class VoteMain extends javax.swing.JFrame {
         conField = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 153, 255), new java.awt.Color(51, 153, 255)));
+        jPanel1.setForeground(new java.awt.Color(51, 153, 255));
 
         jLabel1.setText("SELECT CANDIDATE");
 
@@ -69,6 +75,7 @@ public class VoteMain extends javax.swing.JFrame {
         bGroup.add(Cand4);
         Cand4.setText("Maxwell");
 
+        jButton1.setForeground(new java.awt.Color(51, 153, 255));
         jButton1.setText("VOTE");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -80,28 +87,28 @@ public class VoteMain extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Cand1)
-                    .addComponent(Cand3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Cand4)
-                    .addComponent(Cand2))
-                .addGap(41, 41, 41))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(120, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(conField, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(65, 65, 65))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(90, 90, 90))
+                        .addGap(187, 187, 187))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(116, 116, 116))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(conField)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Cand1)
+                                    .addComponent(Cand3))
+                                .addGap(106, 106, 106)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Cand4)
+                                    .addComponent(Cand2))))
+                        .addGap(122, 122, 122))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(215, 215, 215)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,35 +119,30 @@ public class VoteMain extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Cand1)
                     .addComponent(Cand2))
-                .addGap(41, 41, 41)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Cand3)
-                    .addComponent(Cand4))
-                .addGap(12, 12, 12)
+                    .addComponent(Cand4)
+                    .addComponent(Cand3))
+                .addGap(31, 31, 31)
                 .addComponent(conField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addGap(27, 27, 27))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void Cand2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cand2ActionPerformed
@@ -153,11 +155,11 @@ public class VoteMain extends javax.swing.JFrame {
           if(Cand1.isSelected())
         { 
          conField.setText("You voted for " +Cand1.getText());
-           wr.Read1();
+           IO.Read1();
          
           System.out.print("Vote Success");
           
-          wr.Write1();
+          IO.Write1();
           
             
         }
@@ -166,7 +168,7 @@ public class VoteMain extends javax.swing.JFrame {
         {
             conField.setText("You voted for " +Cand2.getText());
          
-            wr.Read2();
+            IO.Read2();
          
           System.out.print("Vote Success");
           
@@ -178,7 +180,7 @@ public class VoteMain extends javax.swing.JFrame {
         {
             conField.setText("You voted for " +Cand3.getText());
          
-             wr.Read3();
+             IO.Read3();
          
           System.out.print("Vote Success");
           
@@ -188,26 +190,37 @@ public class VoteMain extends javax.swing.JFrame {
         
            else if(Cand4.isSelected())
         {
-            wr.Read4();
+            
+            conField.setText("You voted for " +Cand4.getText());
+            IO.Read4();
          
             System.out.print("Vote Success");
           
             wr.Write4();
          
-             conField.setText("You voted for " +Cand4.getText());
+               
+             
         }
         
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(VoteMain.class.getName()).log(Level.SEVERE, null, ex);
-        }
+          
+        Scanner input = new Scanner(System.in);
         
         
         
         
-   
+        e.setVisible(true);
         
+       
+        
+  
+
+
+         //closeMe();
+         
+    
+           
+        
+             
     }//GEN-LAST:event_jButton1MouseClicked
 
     /**
@@ -241,6 +254,7 @@ public class VoteMain extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new VoteMain().setVisible(true);
+               
             }
         });
     }
@@ -263,6 +277,16 @@ public class VoteMain extends javax.swing.JFrame {
 
 private  void closeMe()
     {
+        for (int i = 0; i<1000;i++)
+        {
+            
+        
+        }
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(VoteMain.class.getName()).log(Level.SEVERE, null, ex);
+        }
         WindowEvent meClose = new WindowEvent (this,WindowEvent.WINDOW_CLOSING);
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(meClose);
     }
